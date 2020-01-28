@@ -6,7 +6,7 @@ import Login from '@/components/Login'
 import Dashboard from '@/components/Dashboard'
 import Settings from '@/components/Settings'
 
-Vue.use(VueRouter)
+Vue.use(Router)
 
 // const routes = [
 //   {

@@ -4,7 +4,7 @@ const fb = require('./firebaseConfig.js')
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
+export  const store = new Vuex.Store({
     state: {
         currentUser: null,
         userProfile: {}
