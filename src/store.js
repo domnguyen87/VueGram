@@ -10,6 +10,10 @@ export  const store = new Vuex.Store({
         userProfile: {}
     },
     actions: {
+        clearData({ commit }) {
+            commit('setCurrentUser', null)
+            commit('setUserProgile', null)
+        },
         fetchUserProfile({ commit, state }) {
             fb.usersCollection.doc(state.currentUser.uid).get().then(res => {
                 commit('setUserProfile', res.data())
