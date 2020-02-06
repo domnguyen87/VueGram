@@ -8,19 +8,20 @@ Vue.use(Vuex);
 fb.auth.onAuthStateChanged(user => {
     if (user) {
         store.commit('setCurrentUser', user)
-        store.commit('fetchUserProfile')
+        store.dispatch('fetchUserProfile')
     }
 })
 
-export  const store = new Vuex.Store({
+export const store = new Vuex.Store({
     state: {
         currentUser: null,
-        userProfile: {}
+        userProfile: {},
+        posts: []
     },
     actions: {
         clearData({ commit }) {
             commit('setCurrentUser', null)
-            commit('setUserProgile', null)
+            commit('setUserProfile', {})
         },
         fetchUserProfile({ commit, state }) {
             fb.usersCollection.doc(state.currentUser.uid).get().then(res => {
